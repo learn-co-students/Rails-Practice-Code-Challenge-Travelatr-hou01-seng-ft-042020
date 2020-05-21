@@ -1,0 +1,22 @@
+<h1>Blogger Info:</h1>
+<p>
+<h2>Name:</h2> <%=@blogger.name%>
+<br/>
+<h2>Bio:</h2> <%=@blogger.bio%>
+<br/>
+<h2>Age:</h2> <%=@blogger.age%>
+<p>
+Total likes: <%=@blogger.total_likes%>
+<p>
+
+Featured Post:<%=link_to @blogger.featured_post.title, post_path(@blogger.featured_post)%>
+<br/>
+
+<p>
+Most Written About Destinations:
+<%@blogger.most_written.each do |destination|%> 
+<%=link_to destination.name, destination_path(destination)%>
+<%end%>
+<br/>
+
+
