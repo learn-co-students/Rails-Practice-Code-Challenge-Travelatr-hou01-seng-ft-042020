@@ -1,0 +1,13 @@
+<h1>Post Title: </h1>
+Title: <%=@post.title%>
+<p>
+Content: <%=@post.content%>
+<p>
+Total Likes: <%=@post.likes%>
+<p>
+
+<%=form_with model: @post do |f|%>
+<%=f.hidden_field :likes %>
+<%=f.submit value="like" %>
+<%end%>
+

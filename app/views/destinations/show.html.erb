@@ -1,0 +1,15 @@
+Featured Post:
+<p>
+<%=link_to @destination.featured_post.title, post_path(@destination.featured_post)%>
+<p>
+
+Top 5 Posts:
+<p>
+<%@destination.most_recent.each do |post|%>
+<%=link_to post.title, post_path(post)%>
+<p>
+<%end%>
+<p>
+
+Average Age of Bloggers:
+<%=@destination.average_age%>
