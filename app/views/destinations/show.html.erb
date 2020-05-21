@@ -1,0 +1,20 @@
+<h3>Destination Info</h3>
+<h4>Name:</h4>
+<%= @destination.name%>
+<br>
+<h4>Country:</h4>
+<%= @destination.country%>
+<br>
+<h4>Most Recent Posts</h4>
+
+<% @destination.posts.order(created_at: :desc).limit(5).each do |post|%>
+    <li><%= link_to post.title, post_path(post)%></li>
+<%end%>
+
+<h4>Featured Post</h4>
+<%= link_to @destination.posts.order("likes DESC").first.title, post_path(@destination.posts.order("likes DESC").first) %>
+
+
+
+<h4>Average Age of Bloggers:</h4>
+<%= @destination.bloggers.average(:age).to_i%>

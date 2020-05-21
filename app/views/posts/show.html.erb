@@ -1,0 +1,18 @@
+<h3>Post Info</h3>
+<h4>Title:</h4>
+<%= @post.title%>
+<br>
+<h4>Content:</h4>
+<%= @post.content%>
+<br>
+<h4>Blogger:</h4>
+<%= link_to @post.blogger.name, blogger_path(@post.blogger)%>
+<br>
+<h4>Destination:</h4>
+<%= link_to @post.destination.name, destination_path(@post.destination)%>
+
+<h4>Likes:</h4>
+<%= @post.likes%>
+<br>
+<%= button_to "Like", {:controller => "posts", :action => "like", :post_id => @post.id}, method: :patch%>
+

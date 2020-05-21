@@ -1,0 +1,27 @@
+<% if flash[:errors]%>
+    <% flash[:errors].each do |e| %>
+        <li style="color: red">
+            <%= e %>
+        </li>
+    <%end%>
+<%end%>
+
+<%= form_with model: @post do |f|%>
+    <%= f.label :title %>
+    <%= f.text_field :title%>
+    <br>
+    <br>
+    <%= f.label :content%>
+    <%= f.text_area :content%>
+    <br>
+    <br>
+    <%= f.label "Blogger"%>
+    <%= f.collection_select :blogger_id, @bloggers, :id, :name%>
+    <br>
+    <br>
+    <%= f.label "Destination"%>
+    <%= f.collection_select :destination_id, @destinations, :id, :name, {include_blank: 'Select a destination'}%>
+    <br>
+    <br>
+    <%= f.submit%>
+<%end%>
