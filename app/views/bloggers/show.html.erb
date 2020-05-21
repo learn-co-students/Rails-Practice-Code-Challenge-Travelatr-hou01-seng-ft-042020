@@ -1,0 +1,26 @@
+<h3>Blogger Info</h3>
+<h4>Name:</h4>
+<%= @blogger.name%>
+<br>
+<h4>Bio:</h4>
+<%= @blogger.bio%>
+<br>
+<h4>Age:</h4>
+<%= @blogger.age%>
+<br>
+
+<h4>Featured Post</h4>
+
+<%= link_to @blogger.posts.order("likes DESC").first.title, post_path(@blogger.posts.order("likes DESC").first) %>
+
+<h4>Posts:</h4>
+<% @blogger.posts.each do |post| %>
+    <li><%= post.title %> - Likes: <%= post.likes %></li>
+<% end %>
+
+<h4>Top 5 Destinations</h4>
+<% arr = []%>
+<% @blogger.destinations.each do |destination|%>
+    <li><%= arr << destination.posts.first%>
+    
+<%end%>
