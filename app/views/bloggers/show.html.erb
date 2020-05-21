@@ -1,0 +1,9 @@
+<h1><%=@blogger.name%></h1>
+<label>Blogger Bio : </label>
+<%= @blogger.bio%> <br>
+<label>Blogger Age : </label>
+<%= @blogger.age%> <br>
+<label>Blogger Posts : </label> <br>
+<% @blogger.posts.each do |p|%>
+    <%=link_to p.title, post_path(p)%> <br>
+<% end %>
