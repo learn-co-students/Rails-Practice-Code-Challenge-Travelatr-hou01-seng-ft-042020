@@ -1,0 +1,15 @@
+
+<% if flash[:errors]%>
+    <% flash[:errors].each do |e|%>
+        <li style="color: red"><%= e%> </li>
+    <% end %>
+<% end%>
+<%= form_with model:@post do |f|%>
+<%= f.label :title%>
+<%= f.text_field :title%> <br>
+<%= f.label :content%>
+<%= f.text_area :content%> <br>
+<%= f.collection_select :blogger_id, @bloggers, :id, :name%>
+<%= f.collection_select :destination_id, @destinations, :id, :name%>
+<%= f.submit%>
+<% end %>

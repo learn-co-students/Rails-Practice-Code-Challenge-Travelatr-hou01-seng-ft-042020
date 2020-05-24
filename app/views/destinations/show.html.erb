@@ -1,0 +1,14 @@
+<h1>Destinations show</h1>
+
+<h3> Destination Name: <%= @destination.name %> </h3>
+<h3> Destination Country: <%= @destination.country%> </h3>
+<br>
+<label> Top 5 Posts : </label>
+<% @destination.last_five.each do |post| %>
+    <h3><%= link_to post.title, post_path%></h3>
+<% end %>
+<label> Most likes : </label>
+<%= link_to @destination.most_likes.title, post_path %> <br>
+<label> Blogger average Age : </label>
+<%= @destination.blogger_age%>
+       
