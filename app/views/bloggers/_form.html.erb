@@ -1,0 +1,19 @@
+<h3>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %> 
+        <li style="color: red"> <%= e %> </li>
+    <% end %>
+<% end %>
+</h3>
+
+<%= form_for @blogger do |f|%>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+    <%= f.label :bio%>
+    <%= f.text_field :bio%>
+    <%= f.label :age%>
+    <%= f.number_field :age%>
+
+    <%= f.submit%>
+<% end%>
+
