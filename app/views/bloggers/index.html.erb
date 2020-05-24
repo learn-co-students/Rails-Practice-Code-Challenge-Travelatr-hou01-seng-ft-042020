@@ -1,8 +1,0 @@
-<label>Bloggers :</label>
-<% @bloggers.each do |blogger| %>
-    <li><%= link_to blogger.name, blogger_path(blogger)%>
-    <% blogger.posts.map do |p|%>
-    <%= p.likes %>
-    <% end %>
-    </li>
-<% end %>

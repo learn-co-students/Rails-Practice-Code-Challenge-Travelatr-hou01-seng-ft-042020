@@ -3,15 +3,10 @@ class Post < ApplicationRecord
     belongs_to :destination
 
     validates :content, length: {minimum:100}
+    validates :title, presence: true
 
-    # def order_by_recent
-    #     self.order(:created_at desc).limit(5)
-    # end
-
-    def sum_likes
-        self.map
-        self.inject(0, :+)
+    def add_like
+        self.likes += 1
     end
-
 
 end

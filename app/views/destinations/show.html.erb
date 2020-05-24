@@ -1,15 +1,23 @@
 <h2><%= @destination.name %></h2>
 
-<h2>Posts</h2>
+<ul>
+    <h2>Posts</h2>
 
-<% @destination.posts.each do |post| %>
-<li>
-<%= link_to post.title, post_path(post) %>
-</li>
-<% end %>
+    <% @destination.posts.each do |post| %>
+    <li>
+        <%= link_to post.title, post_path(post) %>
+    </li>
+    <% end %>
+</ul>
 
+<ul>
+<h3>Recent 5 post : </h3> 
+<% @destination.most_recent.each do |post|%>
+    <li><%= post%></li>
+<%end%>
+</ul>
+<h3>Most Like post :</h3>
+<%= link_to @destination.most_like.title, post_path%>
 
-<h2>Average Age:</h2>
-<% @destination.bloggers.each do |blogger| %>
-<%= blogger.age.average %>
-<% end%>
+<h3>Average Age of Blogger : <%= @destination.avg_age%></h3>
+
